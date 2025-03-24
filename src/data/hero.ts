@@ -6,6 +6,6 @@ export const heroDetails = {
 
 export const snowballHeroDetails = {
     heading: 'Grow Your Habits. Grow Your Life.',
-    subheading: 'Create Habits and track Goals as you create your snowball.',
+    subheading: 'Create Habits and Goals as you Grow your Snowball.',
     centerImageSrc: '/images/snowball-home.jpeg',
 }
