@@ -43,15 +43,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+        <head>
+            <title>Moment Labs</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </head>
       <body
         className={`${manrope.className} ${sourceSans.className} antialiased`}
       >
+        <div>
         {siteDetails.googleAnalyticsId && <GoogleAnalytics gaId={siteDetails.googleAnalyticsId} />}
         <Header />
         <main>
           {children}
         </main>
         <Footer />
+        </div>
       </body>
     </html>
   );
