@@ -25,15 +25,16 @@ function PasswordResetContent() {
   const searchParams = useSearchParams();
   const [status, setStatus] = useState<'loading' | 'error' | 'manual'>('loading');
   const accessToken = searchParams.get('access_token');
+  const email = searchParams.get('email');
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!accessToken || !email) {
       setStatus('error');
       return;
     }
 
     // Construct deep link
-    const expoDeepLink = `com.momentlabs.snowball://reset-password?access_token=${encodeURIComponent(accessToken)}`;
+    const expoDeepLink = `com.momentlabs.snowball://reset-password?email=${encodeURIComponent(email)}&access_token=${encodeURIComponent(accessToken)}`;
     
     // Try to redirect to app
     window.location.href = expoDeepLink;
@@ -66,8 +67,8 @@ function PasswordResetContent() {
             <button 
             className="bg-blue-500 text-white px-4 py-2 rounded"
             onClick={() => {
-                if (accessToken) {
-                const expoDeepLink = `com.momentlabs.snowball://reset-password?access_token=${encodeURIComponent(accessToken)}`;
+                if (accessToken && email) {
+                const expoDeepLink = `com.momentlabs.snowball://reset-password?email=${encodeURIComponent(email)}&access_token=${encodeURIComponent(accessToken)}`;
                 window.location.href = expoDeepLink;
                 }
             }}
